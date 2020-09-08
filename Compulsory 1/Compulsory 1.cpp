@@ -25,7 +25,7 @@ public:
 			std::cout << "Pick an number between 1 and 9.\n";
 	}
 	
-	void setIn(char a, bool player) //puts inn players symbols for the numbers
+	void setIn(int a, bool player) //puts inn players symbols for the numbers
 	{
 
 		int playerStatus;
@@ -75,14 +75,14 @@ int main()
 	call function;
 	int input;
 	bool player = true; //if false it's player's 2 turn
-
 	do
 	{
 		function.print();
 		std::cin >> input;
 		function.setIn(input, player);
-		if (player) player = false;
+		if (player)player = false;
 		else if (!player) player = true;	
 	} 
-	while (function.checkWin(player) == 0);
+	while (function.checkWin(!player) == 0);
+	function.checkWin(!player);
 }
